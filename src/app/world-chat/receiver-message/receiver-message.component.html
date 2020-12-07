@@ -1,0 +1,11 @@
+<div class="receiver-message-container">
+  <div class="message-info">
+    <div class="receiver-nickname">{{ chatRecord.nickname }}</div>
+    <div class="receiver-message-bubble">
+      {{ chatRecord.message }}
+    </div>
+    <div class="receiver-message-date">
+      {{ chatRecord.date | date: 'shortTime' }}
+    </div>
+  </div>
+</div>

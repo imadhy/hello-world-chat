@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "hello-world-chat"
+    }
+  },
+  "defaultProject": "hello-world-chat",
+  "cli": {
+    "analytics": false
+  }
 }

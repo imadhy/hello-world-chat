@@ -1,0 +1,33 @@
+.receiver-nickname {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 15px;
+  color: #5B748A;
+  font-weight: 500;
+  font-size: large;
+}
+
+.receiver-message-date {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 15px;
+  color: #acacac;
+  font-weight: 100;
+  font-size: small;
+  margin-top: 5px;
+}
+
+.receiver-message-bubble {
+  background-color: #FFFFFF;
+  padding: 20px;
+  color: #4B556D;
+  min-width: 50px;
+  max-width: 250px;
+  border-radius: 15px 15px 15px 15px;
+}
+
+.receiver-message-container {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: flex-start;
+}
