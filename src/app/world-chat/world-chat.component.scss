@@ -4,83 +4,30 @@
   height: 600px;
   border-radius: 15px 15px 15px 15px;
   padding: 25px;
-  overflow-y: scroll;
   position: relative;
 }
 
 .main-chat {
   overflow-y: scroll;
-  height: 530px;
-}
-
-.message-info {
-  display: flex;
-  flex-direction: column;
-}
-
-.chat-send-container {
-  position: absolute;
-  bottom: 0;
-  padding: 20px;
-  background-color: #FBFCFF;
-  border-radius: 10px;
-  margin-bottom: 15px;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
-
-  .chat-send-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    input[type="text"] { 
-      line-height: 35px;
-      width: 410px; 
-      border:1px solid #E6E6E8;
-      border-radius: 5px;
-      padding-left: 15px;
-    }
-
-    input::placeholder {
-      color: #8E96A8;
-      margin-right: 15px;
-    }
-
-    input::-webkit-input-placeholder { /* WebKit browsers */
-      line-height: 35px;
-    }
-  
-    button {
-      background-color: #004DFC;
-      line-height: 35px;
-      width: 80px;
-      margin-left: 15px;
-      border: none;
-      border-radius: 5px;
-      color: #fff;
-      font-weight: 600;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-    }
-  
-    img {
-      width: 15px;
-      height: 15px;
-    }
-  }
+  height: 510px;
+  width: calc(100% + 10px);
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
-  background: transparent;
+  display: none;
 }
-::-webkit-scrollbar-track {
-  background: none;
-  margin: 10px 8px 10px 8px;
-  border-radius: 20px;
-}
-::-webkit-scrollbar-thumb {
-  background-color: #5B748A;
-  border-radius: 15px;
-}
+
+// ::-webkit-scrollbar {
+//   width: 5px;
+//   height: 5px;
+//   background: transparent;
+// }
+// ::-webkit-scrollbar-track {
+//   background: none;
+//   margin: 10px 8px 10px 8px;
+//   border-radius: 20px;
+// }
+// ::-webkit-scrollbar-thumb {
+//   background-color: #5B748A;
+//   border-radius: 15px;
+// }

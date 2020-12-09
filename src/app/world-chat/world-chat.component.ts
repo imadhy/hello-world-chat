@@ -1,5 +1,5 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Observable } from 'rxjs';
 import { ChatRecord } from '../models/chat-record.mode';
 import { ChatApiService } from '../services/chat-api.service';
 
@@ -8,40 +8,22 @@ import { ChatApiService } from '../services/chat-api.service';
   templateUrl: './world-chat.component.html',
   styleUrls: ['./world-chat.component.scss']
 })
-export class WorldChatComponent implements OnInit, OnDestroy {
+export class WorldChatComponent implements OnInit {
   @Input() nickname;
-  messageToSend: string;
-  messages: ChatRecord[] = [];
-  subscription: Subscription;
+  @ViewChild('chat', { static: true }) chatFrame: ElementRef;
+  receiveMessages$: Observable<ChatRecord[]>;
 
   constructor(private chatService: ChatApiService) { }
 
   ngOnInit(): void {
-    this.subscription = this.chatService.receiveMessages().subscribe((message: ChatRecord) => {
-      if (message) {
-        this.messages = [...this.messages, message];
-      }
-    });
+    this.receiveMessages$ = this.chatService.receiveMessages();
   }
 
-  OnDestroy() {
-    this.subscription.unsubscribe();
+  ngAfterViewChecked() {
+    this.scrollToBottom();
   }
 
-  sendMessage(): void {
-    if (this.messageToSend) {
-      this.chatService.sendMessage({
-        nickname: this.nickname,
-        message: this.messageToSend,
-        date: new Date()
-      });
-
-      this.messageToSend = '';
-    }
-  }
-
-  ngOnDestroy() {
-    // unsubscribe to ensure no memory leaks
-    this.subscription.unsubscribe();
+  scrollToBottom() {
+    this.chatFrame.nativeElement.scrollTop = this.chatFrame.nativeElement.scrollHeight;
   }
 }

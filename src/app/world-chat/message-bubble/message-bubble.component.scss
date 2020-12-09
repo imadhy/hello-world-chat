@@ -1,0 +1,93 @@
+.message-container {
+  margin-bottom: 10px;
+  display: flex;
+}
+
+.nickname {
+  display: flex;
+  color: #5B748A;
+  font-weight: 500;
+  font-size: large;
+}
+
+.message-bubble {
+  padding: 15px;
+  min-width: 50px;
+  max-width: 250px;
+  border-radius: 15px 15px 15px 15px;
+  overflow-wrap: break-word;
+
+  .reply-message {
+    font-size: smaller;
+    display: flex;
+
+    img {
+      width: 15px;
+      height: 15px;
+    }
+  }
+}
+
+.message-date {
+  display: flex;
+  color: #acacac;
+  font-weight: 100;
+  font-size: small;
+  margin-top: 5px;
+}
+
+.sender {
+  justify-content: flex-end;
+
+  .nickname {
+    justify-content: flex-end;
+    margin-right: 10px;
+  }
+  .message-bubble {
+    background-color: #1A233B;
+    color: #FCFCFC;
+    text-align: right;
+
+    .reply-message {
+      color: #8E96A8;
+      padding:0 5px 5px 0;
+
+      img {
+        margin-left: 10px;
+      }
+    }
+  }
+  .message-date {
+    justify-content: flex-end;
+    margin-right: 10px;
+  }
+}
+
+.receiver {
+  justify-content: flex-start;
+
+  .nickname {
+    justify-content: flex-start;
+    margin-left: 10px;
+  }
+  .message-bubble {
+    background-color: #FFFFFF;
+    color: #4B556D;
+
+    .reply-message {
+      color: #8E96A8;
+      padding:0 0 5px 5px;
+
+      img {
+        margin-right: 10px;
+      }
+    }
+  }
+  .message-bubble:hover {
+    cursor: pointer;
+  }
+  .message-date {
+    justify-content: flex-start;
+    margin-left: 10px;
+  }
+}

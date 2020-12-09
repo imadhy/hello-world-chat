@@ -1,17 +1,9 @@
 <div class="chat-container">
-  <div class="main-chat">
-    <ng-container *ngFor="let message of messages">
-      <app-sender-message *ngIf="message.nickname === nickname;else receiverBlock" [chatRecord]="message"></app-sender-message>
-      <ng-template #receiverBlock>
-        <app-receiver-message [chatRecord]="message" ></app-receiver-message>
-      </ng-template>
+  <div class="main-chat" #chat>
+    <ng-container *ngFor="let chatRecord of receiveMessages$ | async">
+      <app-message-bubble [chatRecord]="chatRecord" [nickname]="nickname"></app-message-bubble>
     </ng-container>
   </div>
 
-  <div class="chat-send-container">
-    <div class="chat-send-bar">
-      <input [(ngModel)]="messageToSend" type="text" placeholder="Enter your message here" />
-      <button (click)="sendMessage()">Send <img src="assets/img/send.svg"></button>
-    </div>
-  </div>
+  <app-send-bar [nickname]="nickname" ></app-send-bar>
 </div>

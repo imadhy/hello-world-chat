@@ -6,19 +6,33 @@ import { ChatRecord } from '../models/chat-record.mode';
   providedIn: 'root'
 })
 export class ChatApiService {
-  private chatRecords$ = new Subject<ChatRecord>();
+  private chatRecords$ = new BehaviorSubject<ChatRecord[]>([]);
+  private messageToReply$ = new Subject<ChatRecord>();
 
   constructor() { }
 
   sendMessage(ChatRecord: ChatRecord): void {
-    this.chatRecords$.next(ChatRecord);
+    const chatRecords = [...this.chatRecords$.value, ChatRecord];
+    this.chatRecords$.next(chatRecords);
   }
 
-  receiveMessages(): Observable<ChatRecord> {
+  receiveMessages(): Observable<ChatRecord[]> {
     return this.chatRecords$.asObservable();
   }
 
-  // getChatHistory(): ChatRecord[] {
-  //   return this.chatHistory;
-  // }
+  setMessageToReply(chatRecord: ChatRecord): void {
+    this.messageToReply$.next(chatRecord);
+  }
+
+  clearMessageToReply(): void {
+    this.messageToReply$.next();
+  }
+
+  receiveMessageToReply(): Observable<ChatRecord> {
+    return this.messageToReply$.asObservable();
+  }
+
+  isSender(chatRecord: ChatRecord, nickname: string) {
+    return chatRecord.nickname === nickname;
+  }
 }

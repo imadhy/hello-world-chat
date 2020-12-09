@@ -1,0 +1,16 @@
+<div class="message-container" [ngClass]="isSender ? 'sender' : 'receiver'">
+  <div class="message-info">
+    <div class="nickname">{{ chatRecord.nickname }}</div>
+    <div class="message-bubble" (click)="replyToMessage()">
+      <div class="reply-message" *ngIf="chatRecord?.replyMessage" >
+        <img *ngIf="!isSender" src="assets/img/reply-receiver.svg" />
+        <span>{{ chatRecord.replyMessage | truncMessage: 50 }}</span>
+        <img *ngIf="isSender" src="assets/img/reply-sender.svg" />
+      </div>
+      <span>{{ chatRecord.message }}</span>
+    </div>
+    <div class="message-date">
+      {{ chatRecord.date | date: 'shortTime' }}
+    </div>
+  </div>
+</div>

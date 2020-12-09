@@ -1,0 +1,11 @@
+<div class="chat-send-container">
+  <ng-container *ngIf="messageToReply$ | async as messageToReply">
+    <div class="reply-message-box" *ngIf="!chatService.isSender(messageToReply, this.nickname)" >
+      <span> Replying to : {{ messageToReply.message | truncMessage: 60 }}</span><img (click)="removeReplyMessage()" src="assets/img/x-mark.svg" />
+    </div>
+  </ng-container>
+  <div class="chat-send-bar">
+    <input (keyup.enter)="sendMessage()" [(ngModel)]="messageToSend" type="text" placeholder="Enter your message here" />
+    <button (click)="sendMessage()">Send <img src="assets/img/send.svg"></button>
+  </div>
+</div>

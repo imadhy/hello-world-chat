@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SenderMessageComponent } from './sender-message.component';
+import { SendBarComponent } from './send-bar.component';
 
-describe('SenderMessageComponent', () => {
-  let component: SenderMessageComponent;
-  let fixture: ComponentFixture<SenderMessageComponent>;
+describe('SendBarComponent', () => {
+  let component: SendBarComponent;
+  let fixture: ComponentFixture<SendBarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SenderMessageComponent ]
+      declarations: [ SendBarComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SenderMessageComponent);
+    fixture = TestBed.createComponent(SendBarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
