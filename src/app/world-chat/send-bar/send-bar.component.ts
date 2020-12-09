@@ -24,7 +24,7 @@ export class SendBarComponent implements OnInit {
   }
 
   sendMessage(): void {
-    if (this.messageToSend) {
+    if (this.messageToSend.trim()) {
       this.chatService.sendMessage({
         nickname: this.nickname,
         message: this.messageToSend,
